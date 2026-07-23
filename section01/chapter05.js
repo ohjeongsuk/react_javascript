@@ -85,10 +85,11 @@
 a =30;   
 a = a ?? 10; //연산자(??)는 피연사자중에 null 이나 undefined 이 아닌값을 선택한다.   
 console.log(a);  //30 
- 
+
 let b = 30;
 let a1 = null; 
 let x = a1 ?? b; // x = b 
+console.log(x);   
  
  
 //11. 삼항연산자 
