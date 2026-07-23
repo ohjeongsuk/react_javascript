@@ -29,7 +29,7 @@ function dance() {
 }
 */
 
-//2. 콜백함수 응용방법
+//2. 콜백함수 응용방법(리액트에서 자주 사용함)
 function repeat(count, callback) {
   for (let index = 0; index < count; index++) {
     callback(index);
