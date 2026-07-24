@@ -27,7 +27,7 @@ console.log(flag)
 
 console.log(arr.includes(number))
 
-//4. 배열에서 찾고자하는 값의 인덱스를 출력
+//4. 배열에서 찾고자하는 값의 인덱스를 출력 indexof
 let index = -1
 let count = 0
 arr.forEach((e)=>{
@@ -77,7 +77,7 @@ let index4 = arr2.findIndex((e)=>{return e.color === "white"})
 console.log(arr2[index4])
 
 
-//6. 배열에서 찾고자 하는 객체를 찾아서 해당된 객체를 리턴
+//6. 배열에서 찾고자 하는 객체를 찾아서 해당된 객체를 리턴 find
 const arr3 = [
   {color: "red"},
   {color: "blue"},
@@ -96,7 +96,7 @@ console.log(findObject || "찾는 객체가 없음")
 const findObject2 = arr3.find((e)=> {return e.color === "white"})
 console.log(findObject2 || "찾는 객체가 없음")
 
-//7. 배열에서 조건에 맞는객체를 필터링해서 리턴
+//7. 배열에서 조건에 맞는객체를 필터링해서 리턴 filter
 let arr4 = [ 
 { name: "김길동", hobby: "테니스" }, 
 { name: "이길동", hobby: "테니스" }, 
@@ -184,4 +184,4 @@ console.log(arr10)
 //12. 배열을 한개의 문자열로 만들기 join
 const arr11 = ["홍길동","님","안녕하세요","반가워요"]; 
 const joinString = arr11.join("/"); 
-console.log(joinString); 
+console.log(joinString);
