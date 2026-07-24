@@ -32,4 +32,4 @@ for (let index = 0; index < 2; index++) {
 // console.log(count);  //에러발생
 // console.log(index);  //에러발생
 
-funcB(50)
+// funcB(50)  //함수안에 선언된 지역함수는 밖에서 콜 할 수 없다.
