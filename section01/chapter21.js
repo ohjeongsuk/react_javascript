@@ -53,6 +53,8 @@ orderFood("백숙", (food) => {
 // 6. 비동기 방식 3단계 백숙 => 뜨거운백숙 => 차가운백숙 => 냉동백숙
 orderFood("백숙", (food) => {
   console.log(`${food} 음식 조리완료`);
-  coolFood("뜨거운" + food, (food) => console.log(`${food} 음식을 차갑게 했습니다`)
-    freezeFood("차가운백숙", (food) => console.log(`${food} 음식을 냉동시켰습니다`)));
+  coolFood("뜨거운" + food, (food) => {console.log(`${food} 음식을 차갑게 했습니다`);
+    freezeFood("차가운백숙", (food) => {console.log(`${food} 음식을 냉동시켰습니다`);
+    });
+  });
 });
