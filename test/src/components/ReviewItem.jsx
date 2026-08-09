@@ -4,7 +4,7 @@ import "./../css/ReviewItem.css";
 import { useNavigate } from "react-router-dom";
 
 const ReviewItem = ({ id, emotionId, createdDate, content }) => {
-  const nav = useNavigate;
+  const nav = useNavigate();
 
   const goReviewPage = () => {
     nav(`/review/${id}`);

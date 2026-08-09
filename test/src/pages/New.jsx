@@ -1,9 +1,28 @@
-import { useSearchParams } from "react-router-dom";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import Editor from "../components/Editor";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ReviewDispatchContext } from "../App";
 
 const New = () => {
-  const [params, setParams] = useSearchParams();
+  const { onCreate } = useContext(ReviewDispatchContext);
+  const nav = useNavigate();
 
-  return <div>New{param.get("value")}</div>;
+  const onSubmit = (input) => {
+    onCreate(input.createdDate.getTime(), input.emotionId, input.content);
+    nav("/", { replace: true });
+  };
+
+  return (
+    <div>
+      <Header
+        title={"새 영화 리뷰 작성"}
+        leftChild={<Button text={"< 뒤로 가기"} />}
+      />
+      <Editor onSubmit={onSubmit} />
+    </div>
+  );
 };
 
 export default New;

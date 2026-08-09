@@ -1,8 +1,59 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, replace } from "react-router-dom";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import Editor from "../components/Editor";
+import { useContext, useEffect, useState } from "react";
+import { ReviewDispatchContext, ReviewStateContext } from "../App";
 
 const Edit = () => {
   const params = useParams();
-  return <div>{params.id}번 영화리뷰 수정페이지</div>;
+  const nav = useNavigate();
+  const { onDelete, onUpdate } = useContext(ReviewDispatchContext);
+  const data = useContext(ReviewStateContext);
+  const [curReviewItem, setCurReviewItem] = useState();
+
+  useEffect(() => {
+    const currentReviewItem = data.find(
+      (item) => String(item.id) === String(params.id),
+    );
+    if (!currentReviewItem) {
+      window.alert("존재하지 않는 리뷰입니다.");
+      nav("/", { replace: true });
+    }
+    setCurReviewItem(currentReviewItem);
+  }, [params.id]);
+
+  const onClickDelete = () => {
+    if (window.confirm("정말 삭제할까요? 다시 복구되지 않습니다!")) {
+      onDelete(Number(params.id));
+      nav("/", { replace: true });
+    }
+  };
+
+  const onSubmit = (input) => {
+    if (window.confirm("리뷰를 수정할까요?")) {
+      onUpdate(
+        Number(params.id),
+        input.createdDate.getTime(),
+        input.emotionId,
+        input.content,
+      );
+      nav("/", { replace: true });
+    }
+  };
+
+  return (
+    <div>
+      <Header
+        title={"리뷰 수정"}
+        leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로 가기"} />}
+        rightChild={
+          <Button onClick={onClickDelete} text={"삭제"} type={"NEGATIVE"} />
+        }
+      />
+      <Editor initData={curReviewItem} onSubmit={onSubmit} />
+    </div>
+  );
 };
 
 export default Edit;
