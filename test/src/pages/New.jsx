@@ -18,7 +18,7 @@ const New = () => {
     <div>
       <Header
         title={"새 영화 리뷰 작성"}
-        leftChild={<Button text={"< 뒤로 가기"} />}
+        leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로 가기"} />}
       />
       <Editor onSubmit={onSubmit} />
     </div>

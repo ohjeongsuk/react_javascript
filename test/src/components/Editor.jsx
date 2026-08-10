@@ -52,11 +52,13 @@ const Editor = ({ initData, onSubmit }) => {
   useEffect(() => {
     if (initData) {
       setInput({
-        ...initData,
-        createdDate: new Date(Number(initData.createdDate)),
+        createdDate: new Date(initData.createdDate),
+        emotionId: initData.emotionId,
+        content: initData.content,
       });
     }
   }, [initData]);
+
 
   const onChangeInput = (e) => {
     let name = e.target.name;

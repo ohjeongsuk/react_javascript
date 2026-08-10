@@ -42,8 +42,8 @@ const Home = () => {
     <div>
       <Header
         title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
-        leftChild={<Button text={"<"} />}
-        rightChild={<Button text={">"} />}
+        leftChild={<Button text={"<"} onClick={onDecreaseMonth} />}
+        rightChild={<Button text={">"} onClick={onlncreaseMonth} />}
       />
       <ReviewList data={monthlyData} />
     </div>

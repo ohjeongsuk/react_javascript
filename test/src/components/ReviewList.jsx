@@ -27,7 +27,7 @@ const ReviewList = ({ data }) => {
   return (
     <div className="ReviewList">
       <div className="menu_bar">
-        <select>
+        <select onChange={onChangeSortType} value={sortType}>
           <option value={"latest"}>최신순</option>
           <option value={"oldest"}>오래된순</option>
         </select>
